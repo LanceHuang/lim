@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lance.lim</groupId>
+    <artifactId>lim</artifactId>
+    <version>${revision}</version>
+    <modules>
+        <module>lim-common</module>
+        <module>lim-message</module>
+        <module>lim-server</module>
+        <module>lim-client</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- 统一版本号 -->
+        <revision>1.0-SNAPSHOT</revision>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <slf4j.version>1.7.25</slf4j.version>
+        <lombok.version>1.18.12</lombok.version>
+
+        <spring.boot.version>2.3.7.RELEASE</spring.boot.version>
+        <mysql.version>8.0.16</mysql.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- test -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- log -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- provided -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- project -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 通用依赖 -->
+    <dependencies>
+        <!-- test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- log -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
+        <!-- provided -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- project -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 精简POM -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <!-- 也处理package=pom的pom.xml -->
+                    <updatePomFile>true</updatePomFile>
+                    <!-- 不删除dependencyManagement相关信息 -->
+                    <flattenMode>bom</flattenMode>
+                </configuration>
+                <executions>
+                    <!-- 清理flatten配置 -->
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+
+                    <!-- 替换版本占位符，精简POM -->
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
