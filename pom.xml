@@ -11,6 +11,7 @@
         <module>lim-message</module>
         <module>lim-server</module>
         <module>lim-client</module>
+        <module>lim-rest</module>
     </modules>
     <packaging>pom</packaging>
 
