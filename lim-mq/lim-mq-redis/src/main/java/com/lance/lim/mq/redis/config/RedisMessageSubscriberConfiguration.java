@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
  * @since 2021/4/8
  */
 @EnableConfigurationProperties(RedisProperties.class)
-public class RedisMessageSubscriberAutoConfiguration {
+public class RedisMessageSubscriberConfiguration {
 
     @Bean
     public MessageSubscriber messageSubscriber(RedisProperties redisProperties) {

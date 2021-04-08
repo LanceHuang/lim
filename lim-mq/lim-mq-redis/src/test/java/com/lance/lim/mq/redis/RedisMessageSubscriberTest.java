@@ -3,7 +3,7 @@ package com.lance.lim.mq.redis;
 import com.lance.lim.mq.MessageSubscriber;
 import com.lance.lim.mq.PubSub;
 import com.lance.lim.mq.model.Message;
-import com.lance.lim.mq.redis.config.RedisMessageSubscriberAutoConfiguration;
+import com.lance.lim.mq.redis.config.RedisMessageSubscriberConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Lance
  * @since 2021/4/8
  */
-@SpringBootTest(classes = RedisMessageSubscriberAutoConfiguration.class)
+@SpringBootTest(classes = RedisMessageSubscriberConfiguration.class)
 public class RedisMessageSubscriberTest {
 
     private static final String TOPIC = "test";
