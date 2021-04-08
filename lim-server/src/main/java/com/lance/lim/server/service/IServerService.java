@@ -17,4 +17,11 @@ public interface IServerService {
      * @param chatMsg 聊天消息
      */
     void sendMessage(String userId, ChatMessage chatMsg);
+
+    /**
+     * 拉取消息
+     *
+     * @param userId 用户id
+     */
+    void pullMessage(String userId);
 }

@@ -22,4 +22,9 @@ public class ServerService implements IServerService {
 
         // 回执
     }
+
+    @Override
+    public void pullMessage(String userId) {
+
+    }
 }
