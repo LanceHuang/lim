@@ -12,6 +12,7 @@
         <module>lim-server</module>
         <module>lim-client</module>
         <module>lim-rest</module>
+        <module>lim-mq</module>
     </modules>
     <packaging>pom</packaging>
 

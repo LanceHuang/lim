@@ -8,20 +8,19 @@
         <artifactId>lim</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>lim-common</artifactId>
+    <artifactId>lim-mq</artifactId>
+    <packaging>pom</packaging>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+    <modules>
+        <module>lim-mq-base</module>
+        <module>lim-mq-redis</module>
+    </modules>
 
     <dependencies>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.10.2</version>
+            <groupId>com.lance.lim</groupId>
+            <artifactId>lim-common</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
-
 </project>

@@ -5,23 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.lance.lim</groupId>
-        <artifactId>lim</artifactId>
+        <artifactId>lim-mq</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>lim-common</artifactId>
+    <artifactId>lim-mq-base</artifactId>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.10.2</version>
-        </dependency>
-    </dependencies>
-
 </project>

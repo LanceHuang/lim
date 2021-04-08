@@ -22,5 +22,10 @@
             <artifactId>lim-common</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>com.lance.lim</groupId>
+            <artifactId>lim-mq-redis</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 </project>
