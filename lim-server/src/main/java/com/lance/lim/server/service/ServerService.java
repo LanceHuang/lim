@@ -1,4 +1,4 @@
-package com.lance.lim.server;
+package com.lance.lim.server.service;
 
 import com.lance.lim.mq.MessagePublisher;
 import com.lance.lim.server.model.ChatMessage;
@@ -17,11 +17,9 @@ public class ServerService implements IServerService {
 
     @Override
     public void sendMessage(String userId, ChatMessage chatMsg) {
-        // 投递
+        // 按会话、群号取模，将消息发布到不同的topic
 
 
         // 回执
     }
-
-
 }

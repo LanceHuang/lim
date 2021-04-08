@@ -1,4 +1,4 @@
-package com.lance.lim.server;
+package com.lance.lim.server.service;
 
 import com.lance.lim.server.model.ChatMessage;
 
