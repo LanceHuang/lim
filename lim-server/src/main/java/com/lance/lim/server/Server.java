@@ -1,12 +1,17 @@
 package com.lance.lim.server;
 
 import com.lance.lim.server.config.ServerProperties;
+import com.lance.lim.server.handler.MessageDecoder;
+import com.lance.lim.server.handler.MessageEncoder;
+import com.lance.lim.server.handler.ServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -41,7 +46,14 @@ public class Server {
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        // todo
+                        // todo ssl
+                        ch.pipeline().addLast(new LoggingHandler());
+                        // todo 心跳校验
+//                        ch.pipeline().addLast(new IdleStateHandler(s, 0, 0));
+                        ch.pipeline().addLast(new MessageEncoder());
+                        ch.pipeline().addLast(new MessageDecoder());
+                        // todo ?
+                        ch.pipeline().addLast(new ServerHandler());
                     }
                 });
 
