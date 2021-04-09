@@ -1,17 +1,19 @@
-package com.lance.lim.server.model;
+package com.lance.lim.server.packet;
 
+import com.lance.lim.server.annotation.Message;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 聊天消息
+ * 发送消息
  *
  * @author Lance
- * @since 2021/4/6
+ * @since 2021/4/9
  */
 @Getter
 @Setter
-public class ChatMessage {
+@Message(1024)
+public class ReqChatMessage {
 
     /** 消息id */
     private long id;
