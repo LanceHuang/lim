@@ -1,9 +1,6 @@
 package com.lance.lim.server;
 
 import com.lance.lim.server.config.ServerProperties;
-import com.lance.lim.server.handler.MessageDecoder;
-import com.lance.lim.server.handler.MessageEncoder;
-import com.lance.lim.server.handler.ServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
@@ -11,7 +8,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.logging.LoggingHandler;
-import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 
 /**

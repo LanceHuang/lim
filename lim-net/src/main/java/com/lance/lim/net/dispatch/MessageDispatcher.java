@@ -1,4 +1,4 @@
-package com.lance.lim.server.dispatch;
+package com.lance.lim.net.dispatch;
 
 /**
  * 消息分发器

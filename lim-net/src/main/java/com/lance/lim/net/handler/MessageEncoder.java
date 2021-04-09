@@ -1,4 +1,4 @@
-package com.lance.lim.server.handler;
+package com.lance.lim.net.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

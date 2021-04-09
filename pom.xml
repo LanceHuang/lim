@@ -13,6 +13,7 @@
         <module>lim-client</module>
         <module>lim-rest</module>
         <module>lim-mq</module>
+        <module>lim-net</module>
     </modules>
     <packaging>pom</packaging>
 

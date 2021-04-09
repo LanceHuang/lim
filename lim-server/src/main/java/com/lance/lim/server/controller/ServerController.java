@@ -1,6 +1,6 @@
 package com.lance.lim.server.controller;
 
-import com.lance.lim.server.annotation.MessageHandler;
+import com.lance.lim.net.annotation.MessageHandler;
 import com.lance.lim.server.model.Session;
 import com.lance.lim.server.packet.ReqChatMessage;
 import com.lance.lim.server.service.IServerService;

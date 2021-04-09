@@ -1,6 +1,6 @@
 package com.lance.lim.server.packet;
 
-import com.lance.lim.server.annotation.Message;
+import com.lance.lim.net.annotation.Message;
 import lombok.Getter;
 import lombok.Setter;
 

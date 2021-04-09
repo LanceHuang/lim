@@ -1,4 +1,4 @@
-package com.lance.lim.server.annotation;
+package com.lance.lim.net.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -21,10 +21,10 @@
             <artifactId>lim-mq-redis</artifactId>
             <version>${revision}</version>
         </dependency>
-
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
+            <groupId>com.lance.lim</groupId>
+            <artifactId>lim-net</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 </project>
