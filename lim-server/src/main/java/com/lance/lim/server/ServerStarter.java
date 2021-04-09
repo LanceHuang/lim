@@ -6,6 +6,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.util.StopWatch;
 
 /**
+ * 消息服启动器
+ *
  * @author Lance
  * @since 2021/4/8
  */

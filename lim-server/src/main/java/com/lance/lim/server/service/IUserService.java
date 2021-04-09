@@ -1,6 +1,6 @@
 package com.lance.lim.server.service;
 
-import com.lance.lim.server.model.ConnectInfo;
+import com.lance.lim.server.model.Session;
 
 /**
  * 用户服务
@@ -13,10 +13,10 @@ public interface IUserService {
     /**
      * 用户上线
      *
-     * @param userId      用户id
-     * @param connectInfo 连接信息
+     * @param userId  用户id
+     * @param session 会话
      */
-    void online(String userId, ConnectInfo connectInfo);
+    void online(String userId, Session session);
 
     /**
      * 用户离线
@@ -29,7 +29,7 @@ public interface IUserService {
      * 获取连接信息
      *
      * @param userId 用户id
-     * @return 连接信息
+     * @return 会话
      */
-    ConnectInfo getConnectInfo(String userId);
+    Session getSession(String userId);
 }
