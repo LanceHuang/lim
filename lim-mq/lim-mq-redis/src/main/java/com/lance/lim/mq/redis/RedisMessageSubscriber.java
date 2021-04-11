@@ -27,6 +27,7 @@ public class RedisMessageSubscriber extends MessageSubscriber {
         jedis.subscribe(new JedisPubSub() {
             @Override
             public void onMessage(String channel, String message) {
+                // todo 格式校验
                 pubSub.onMessage(channel, JsonUtils.json2object(message, Message.class));
             }
         }, topics);

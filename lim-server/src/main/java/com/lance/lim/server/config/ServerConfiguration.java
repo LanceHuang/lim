@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Import;
 public class ServerConfiguration {
 
     @Bean
-    public Server server(ServerProperties serverProperties) {
+    public Server serverBean(ServerProperties serverProperties) {
         return new Server(serverProperties);
     }
 }

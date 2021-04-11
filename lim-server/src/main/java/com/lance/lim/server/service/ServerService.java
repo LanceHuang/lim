@@ -1,7 +1,11 @@
 package com.lance.lim.server.service;
 
+import com.lance.lim.common.message.RespChatMessage;
 import com.lance.lim.mq.MessagePublisher;
-import com.lance.lim.common.packet.ReqChatMessage;
+import com.lance.lim.common.message.ReqChatMessage;
+import com.lance.lim.mq.model.Message;
+import com.lance.lim.server.config.ServerProperties;
+import com.lance.lim.server.util.MessageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,12 +19,27 @@ public class ServerService implements IServerService {
     @Autowired
     private MessagePublisher messagePublisher;
 
+    @Autowired
+    private ServerProperties serverProperties;
+
     @Override
     public void sendMessage(String userId, ReqChatMessage req) {
-        // 按会话、群号取模，将消息发布到不同的topic
-
+        Message message = createMessage(req);
+        messagePublisher.publish(serverProperties.getTopic(), message);
 
         // 回执
+        MessageUtils.send(userId, RespChatMessage.success(req.getId()));
+    }
+
+    private Message createMessage(ReqChatMessage req) {
+        Message message = new Message();
+        message.setId(req.getId());
+        message.setContent(req.getContent());
+        message.setClientTimestamp(req.getClientTimestamp());
+        message.setSender(req.getSender());
+        message.setReceiver(req.getReceiver());
+        message.setServerTimestamp(System.currentTimeMillis());
+        return message;
     }
 
     @Override

@@ -21,6 +21,13 @@ public class RedisMessagePublisherTest {
 
     @Test
     public void test() {
-        messagePublisher.publish(TOPIC, new Message());
+        Message message = new Message();
+        message.setId(System.currentTimeMillis());
+        message.setContent("你好，我是某某某");
+        message.setClientTimestamp(System.currentTimeMillis());
+        message.setSender("Lance");
+        message.setReceiver("Alice");
+        message.setServerTimestamp(System.currentTimeMillis());
+        messagePublisher.publish(TOPIC, message);
     }
 }

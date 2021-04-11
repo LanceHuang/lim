@@ -21,5 +21,8 @@ public class ServerProperties {
     /** 端口号 */
     private int port;
 
+    /** 消息队列主题 */
+    private String topic;
+
     // todo max size
 }

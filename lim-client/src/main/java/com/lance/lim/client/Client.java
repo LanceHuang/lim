@@ -60,7 +60,7 @@ public class Client implements SmartLifecycle {
 
         try {
             log.info("客户端开始启动");
-            b.connect().sync();
+            b.connect(clientProperties.getHost(), clientProperties.getPort()).sync();
             log.info("客户端启动成功");
         } catch (InterruptedException e) {
             log.error("Start client failed.", e);

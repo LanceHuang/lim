@@ -6,7 +6,7 @@
     <!-- 标准输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %level %logger:%line - %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -16,7 +16,7 @@
         <file>${logdir:-logs}/console.log</file>
         <encoder>
             <!-- 输出格式 -->
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %level %logger:%line - %msg%n</pattern>
             <!-- 输出字符集 -->
             <charset>UTF-8</charset>
         </encoder>
@@ -35,7 +35,7 @@
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${logdir:-logs}/error.log</file>
         <encoder>
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %level %logger:%line - %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">

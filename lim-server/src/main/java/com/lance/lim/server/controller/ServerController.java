@@ -2,7 +2,7 @@ package com.lance.lim.server.controller;
 
 import com.lance.lim.net.annotation.MessageHandler;
 import com.lance.lim.server.model.Session;
-import com.lance.lim.common.packet.ReqChatMessage;
+import com.lance.lim.common.message.ReqChatMessage;
 import com.lance.lim.server.service.IServerService;
 import com.lance.lim.server.util.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;

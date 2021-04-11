@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 public class ClientConfiguration {
 
     @Bean
-    public Client client(ClientProperties clientProperties) {
+    public Client clientBean(ClientProperties clientProperties) {
         return new Client(clientProperties);
     }
 }
