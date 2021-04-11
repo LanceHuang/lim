@@ -10,4 +10,11 @@
     </parent>
     <artifactId>lim-client</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.lance.lim</groupId>
+            <artifactId>lim-common</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
 </project>
