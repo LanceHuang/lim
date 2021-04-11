@@ -1,7 +1,7 @@
 package com.lance.lim.server.service;
 
 import com.lance.lim.mq.MessagePublisher;
-import com.lance.lim.server.packet.ReqChatMessage;
+import com.lance.lim.common.packet.ReqChatMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

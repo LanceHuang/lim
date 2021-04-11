@@ -1,0 +1,67 @@
+<!-- scan=true 每隔一段时间，自动扫描logback.xml的改动 -->
+<!-- scanPeriod 扫描周期 -->
+<!-- debug=true 打印logback内部的调试信息 -->
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+
+    <!-- 标准输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 标准日志 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 当前输出文件：若未配置logdir，则默认使用logs -->
+        <file>${logdir:-logs}/console.log</file>
+        <encoder>
+            <!-- 输出格式 -->
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <!-- 输出字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+        <!-- 滚动策略 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 按小时、按文件大小记录 -->
+            <fileNamePattern>${logdir:-logs}/console.%d{yyyyMMddHH}.%i.log</fileNamePattern>
+            <!-- 超过100MB时，自动按%i累增 -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- 最多保留60天 -->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 错误日志 -->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logdir:-logs}/error.log</file>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 按天记录 -->
+            <fileNamePattern>${logdir:-logs}/error.%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <!-- 级别过滤器 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 只输出ERROR级别的日志 -->
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <!-- 阈值过滤器 -->
+        <!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+        <!--            <level>ERROR</level>-->
+        <!--        </filter>-->
+    </appender>
+
+    <!-- 根logger -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ERROR"/>
+    </root>
+
+</configuration>

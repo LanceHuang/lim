@@ -1,6 +1,6 @@
 package com.lance.lim.server.service;
 
-import com.lance.lim.server.packet.ReqChatMessage;
+import com.lance.lim.common.packet.ReqChatMessage;
 
 /**
  * 消息服务

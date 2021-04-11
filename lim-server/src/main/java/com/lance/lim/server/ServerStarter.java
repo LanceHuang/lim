@@ -20,6 +20,6 @@ public class ServerStarter {
         stopWatch.start();
         new SpringApplicationBuilder(ServerStarter.class).run();
         stopWatch.stop();
-        log.info("============== 启动耗时：{}ms", stopWatch.getTotalTimeMillis());
+        log.info("============== 服务端启动耗时：{}ms ==============", stopWatch.getTotalTimeMillis());
     }
 }

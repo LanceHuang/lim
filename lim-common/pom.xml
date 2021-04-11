@@ -12,6 +12,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.lance.lim</groupId>
+            <artifactId>lim-net</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.10.2</version>
