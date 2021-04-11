@@ -14,4 +14,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ConfigurationProperties(prefix = "lim.client")
 public class ClientProperties {
+
+    /** 域名 */
+    private String host;
+
+    /** 端口号 */
+    private int port;
 }
