@@ -7,13 +7,13 @@
     <artifactId>lim</artifactId>
     <version>${revision}</version>
     <modules>
+        <module>lim-net</module>
         <module>lim-common</module>
-        <module>lim-message</module>
         <module>lim-server</module>
         <module>lim-client</module>
         <module>lim-rest</module>
         <module>lim-mq</module>
-        <module>lim-net</module>
+        <module>lim-mh</module>
     </modules>
     <packaging>pom</packaging>
 

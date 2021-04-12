@@ -13,7 +13,6 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.SmartLifecycle;
-import org.springframework.stereotype.Component;
 
 /**
  * 客户端
@@ -21,7 +20,6 @@ import org.springframework.stereotype.Component;
  * @author Lance
  * @since 2021/4/11
  */
-@Component
 @Slf4j
 public class Client implements SmartLifecycle {
 
