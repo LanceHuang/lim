@@ -32,7 +32,7 @@ public abstract class AbstractLifecycle implements SmartLifecycle {
         doStop();
     }
 
-    protected abstract void doStop();
+    public abstract void doStop();
 
     @Override
     public boolean isRunning() {

@@ -2,6 +2,7 @@ package com.lance.lim.mh;
 
 import com.lance.lim.common.util.AbstractLifecycle;
 import com.lance.lim.mh.config.MessageHandlerProperties;
+import com.lance.lim.mq.MessageSubscriber;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -13,19 +14,27 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MessageHandler extends AbstractLifecycle {
 
+    private MessageSubscriber messageSubscriber;
+
     private MessageHandlerProperties messageHandlerProperties;
 
-    public MessageHandler(MessageHandlerProperties messageHandlerProperties) {
+    private Runnable runner;
+
+    public MessageHandler(MessageSubscriber messageSubscriber, MessageHandlerProperties messageHandlerProperties) {
+        this.messageSubscriber = messageSubscriber;
         this.messageHandlerProperties = messageHandlerProperties;
     }
 
     @Override
     public void doStart() {
-        // todo
+        this.runner = () -> {
+            // todo
+            messageSubscriber.subscribe(null, messageHandlerProperties.getTopic());
+        };
+        new Thread(runner).start();
     }
 
     @Override
-    protected void doStop() {
-        // todo
+    public void doStop() {
     }
 }
