@@ -8,18 +8,14 @@
         <artifactId>lim</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>lim-server</artifactId>
+    <artifactId>lim-demo</artifactId>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.lance.lim</groupId>
-            <artifactId>lim-common</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.lance.lim</groupId>
-            <artifactId>lim-mq-redis</artifactId>
-            <version>${revision}</version>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>lim-core</module>
+        <module>lim-server</module>
+        <module>lim-client</module>
+        <module>lim-rest</module>
+    </modules>
+
 </project>

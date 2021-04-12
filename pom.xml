@@ -9,11 +9,9 @@
     <modules>
         <module>lim-net</module>
         <module>lim-common</module>
-        <module>lim-server</module>
-        <module>lim-client</module>
-        <module>lim-rest</module>
         <module>lim-mq</module>
         <module>lim-mh</module>
+        <module>lim-demo</module>
     </modules>
     <packaging>pom</packaging>
 
