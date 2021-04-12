@@ -18,15 +18,18 @@ public class ReqChatMessage {
     /** 消息id */
     private long id;
 
+    /** 消息类型 */
+    private int type;
+
     /** 消息内容 */
     private String content;
-
-    /** 客户端时间戳 */
-    private long clientTimestamp;
 
     /** 发送者 */
     private String sender;
 
     /** 接收者 */
     private String receiver;
+
+    /** 客户端时间戳 */
+    private long clientTimestamp;
 }

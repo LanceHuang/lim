@@ -34,10 +34,11 @@ public class ServerService implements IServerService {
     private Message createMessage(ReqChatMessage req) {
         Message message = new Message();
         message.setId(req.getId());
+        message.setType(req.getType());
         message.setContent(req.getContent());
-        message.setClientTimestamp(req.getClientTimestamp());
         message.setSender(req.getSender());
         message.setReceiver(req.getReceiver());
+        message.setClientTimestamp(req.getClientTimestamp());
         message.setServerTimestamp(System.currentTimeMillis());
         return message;
     }

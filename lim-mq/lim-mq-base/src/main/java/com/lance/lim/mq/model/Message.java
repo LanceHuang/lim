@@ -16,17 +16,20 @@ public class Message {
     /** 消息id */
     private long id;
 
+    /** 消息类型 */
+    private int type;
+
     /** 消息内容 */
     private String content;
-
-    /** 客户端时间戳 */
-    private long clientTimestamp;
 
     /** 发送者 */
     private String sender;
 
     /** 接收者 */
     private String receiver;
+
+    /** 客户端时间戳 */
+    private long clientTimestamp;
 
     /** 服务端时间戳 */
     private long serverTimestamp;
@@ -35,10 +38,11 @@ public class Message {
     public String toString() {
         return "Message{" +
                 "id=" + id +
+                ", type=" + type +
                 ", content='" + content + '\'' +
-                ", clientTimestamp=" + clientTimestamp +
                 ", sender='" + sender + '\'' +
                 ", receiver='" + receiver + '\'' +
+                ", clientTimestamp=" + clientTimestamp +
                 ", serverTimestamp=" + serverTimestamp +
                 '}';
     }
