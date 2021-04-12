@@ -1,4 +1,4 @@
-package com.lance.lim.common.message;
+package com.lance.lim.core.message;
 
 import com.lance.lim.net.annotation.Message;
 import lombok.Getter;

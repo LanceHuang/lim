@@ -1,8 +1,8 @@
 package com.lance.lim.server.service;
 
-import com.lance.lim.common.message.RespChatMessage;
+import com.lance.lim.core.message.RespChatMessage;
 import com.lance.lim.mq.MessagePublisher;
-import com.lance.lim.common.message.ReqChatMessage;
+import com.lance.lim.core.message.ReqChatMessage;
 import com.lance.lim.mq.model.Message;
 import com.lance.lim.server.config.ServerProperties;
 import com.lance.lim.server.util.MessageUtils;

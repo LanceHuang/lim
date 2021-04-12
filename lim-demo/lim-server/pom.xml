@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>com.lance.lim</groupId>
-            <artifactId>lim-common</artifactId>
+            <artifactId>lim-core</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
