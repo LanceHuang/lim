@@ -4,9 +4,8 @@ import com.lance.lim.common.util.JsonUtils;
 import com.lance.lim.mq.MessageSubscriber;
 import com.lance.lim.mq.PubSub;
 import com.lance.lim.mq.model.Message;
-import com.lance.lim.common.config.RedisProperties;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPubSub;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * redis消息订阅者
@@ -16,20 +15,17 @@ import redis.clients.jedis.JedisPubSub;
  */
 public class RedisMessageSubscriber extends MessageSubscriber {
 
-    private Jedis jedis;
-
-    public RedisMessageSubscriber(RedisProperties redisProperties) {
-        jedis = new Jedis(redisProperties.getHost(), redisProperties.getPort());
-    }
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
 
     @Override
     public void subscribe(PubSub pubSub, String... topics) {
-        jedis.subscribe(new JedisPubSub() {
-            @Override
-            public void onMessage(String channel, String message) {
-                // todo 格式校验
-                pubSub.onMessage(channel, JsonUtils.json2object(message, Message.class));
-            }
-        }, topics);
+//        jedis.subscribe(new JedisPubSub() {
+//            @Override
+//            public void onMessage(String channel, String message) {
+//                // todo 格式校验
+//                pubSub.onMessage(channel, JsonUtils.json2object(message, Message.class));
+//            }
+//        }, topics);
     }
 }

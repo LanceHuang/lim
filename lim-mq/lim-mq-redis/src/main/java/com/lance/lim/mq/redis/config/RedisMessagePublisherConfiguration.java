@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Bean;
 @EnableConfigurationProperties(RedisProperties.class)
 public class RedisMessagePublisherConfiguration {
 
-    @Bean
-    public MessagePublisher messagePublisher(RedisProperties redisProperties) {
-        return new RedisMessagePublisher(redisProperties);
-    }
+//    @Bean
+//    public MessagePublisher messagePublisher(RedisProperties redisProperties) {
+//        return new RedisMessagePublisher(redisProperties);
+//    }
 }
