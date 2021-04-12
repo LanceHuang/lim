@@ -1,4 +1,4 @@
-package com.lance.lim.common;
+package com.lance.lim.common.util;
 
 /**
  * 雪花算法生成id，线程安全，参考 {@code https://blog.csdn.net/qq_39135287/article/details/88964572/}

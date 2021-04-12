@@ -1,6 +1,9 @@
 package com.lance.lim.mh.config;
 
+import com.lance.lim.mh.MessageHandler;
 import com.lance.lim.mq.redis.config.RedisMessageSubscriberConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -12,5 +15,11 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import({RedisMessageSubscriberConfiguration.class})
+@EnableConfigurationProperties(MessageHandlerProperties.class)
 public class MessageHandlerConfiguration {
+
+    @Bean
+    public MessageHandler messageHandler(MessageHandlerProperties messageHandlerProperties) {
+        return new MessageHandler(messageHandlerProperties);
+    }
 }

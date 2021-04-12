@@ -1,5 +1,6 @@
 package com.lance.lim.server;
 
+import com.lance.lim.common.util.AbstractLifecycle;
 import com.lance.lim.net.handler.MessageDecoder;
 import com.lance.lim.net.handler.MessageEncoder;
 import com.lance.lim.net.handler.ServerHandler;
@@ -12,7 +13,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.SmartLifecycle;
 
 /**
  * 消息服netty连接
@@ -21,7 +21,7 @@ import org.springframework.context.SmartLifecycle;
  * @since 2021/4/9
  */
 @Slf4j
-public class Server implements SmartLifecycle {
+public class Server extends AbstractLifecycle {
 
     private ServerProperties serverProperties;
 
@@ -29,22 +29,12 @@ public class Server implements SmartLifecycle {
 
     private EventLoopGroup worker;
 
-    private volatile boolean running;
-
     public Server(ServerProperties serverProperties) {
         this.serverProperties = serverProperties;
     }
 
-    /**
-     * 启动服务器
-     */
     @Override
-    public void start() {
-        if (this.running) {
-            log.error("请勿重复启动服务器");
-            return;
-        }
-
+    public void doStart() {
         boss = new NioEventLoopGroup(1);
         worker = new NioEventLoopGroup();
 
@@ -72,20 +62,10 @@ public class Server implements SmartLifecycle {
         } catch (InterruptedException e) {
             log.error("Start server failed.", e);
         }
-
-        this.running = true;
     }
 
-    /**
-     * 关闭服务器
-     */
     @Override
-    public void stop() {
-        if (!this.running) {
-            log.error("请勿重复关闭服务器");
-            return;
-        }
-
+    public void doStop() {
         try {
             log.info("服务器开始关闭");
             if (boss != null) {
@@ -98,12 +78,5 @@ public class Server implements SmartLifecycle {
         } catch (InterruptedException e) {
             log.error("Shutdown server failed.", e);
         }
-
-        this.running = false;
-    }
-
-    @Override
-    public boolean isRunning() {
-        return this.running;
     }
 }
