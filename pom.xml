@@ -10,7 +10,6 @@
         <module>lim-net</module>
         <module>lim-common</module>
         <module>lim-mq</module>
-        <module>lim-mh</module>
         <module>lim-demo</module>
     </modules>
     <packaging>pom</packaging>

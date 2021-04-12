@@ -16,6 +16,7 @@
         <module>lim-server</module>
         <module>lim-client</module>
         <module>lim-rest</module>
+        <module>lim-mh</module>
     </modules>
 
 </project>
