@@ -1,4 +1,4 @@
-package com.lance.lim.message;
+package com.lance.lim.mh;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 2021/4/8
  */
 @SpringBootApplication
-public class MessageStarter {
+public class MessageHandlerStarter {
 
     public static void main(String[] args) {
 
