@@ -3,7 +3,7 @@ package com.lance.lim.mq.redis;
 import com.lance.lim.common.util.JsonUtils;
 import com.lance.lim.mq.MessagePublisher;
 import com.lance.lim.mq.model.Message;
-import com.lance.lim.mq.redis.config.RedisProperties;
+import com.lance.lim.common.config.RedisProperties;
 import redis.clients.jedis.Jedis;
 
 /**

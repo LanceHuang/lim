@@ -4,7 +4,7 @@ import com.lance.lim.common.util.JsonUtils;
 import com.lance.lim.mq.MessageSubscriber;
 import com.lance.lim.mq.PubSub;
 import com.lance.lim.mq.model.Message;
-import com.lance.lim.mq.redis.config.RedisProperties;
+import com.lance.lim.common.config.RedisProperties;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 

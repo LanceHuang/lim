@@ -1,5 +1,6 @@
 package com.lance.lim.mq.redis.config;
 
+import com.lance.lim.common.config.RedisProperties;
 import com.lance.lim.mq.MessageSubscriber;
 import com.lance.lim.mq.redis.RedisMessageSubscriber;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
