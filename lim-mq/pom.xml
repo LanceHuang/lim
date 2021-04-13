@@ -14,6 +14,7 @@
     <modules>
         <module>lim-mq-base</module>
         <module>lim-mq-redis</module>
+        <module>lim-mq-kafka</module>
     </modules>
 
     <dependencies>
