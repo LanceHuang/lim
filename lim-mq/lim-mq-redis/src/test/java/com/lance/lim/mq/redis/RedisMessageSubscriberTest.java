@@ -3,7 +3,6 @@ package com.lance.lim.mq.redis;
 import com.lance.lim.mq.MessageSubscriber;
 import com.lance.lim.mq.PubSub;
 import com.lance.lim.mq.model.Message;
-import com.lance.lim.mq.redis.config.RedisMessagePublisherConfiguration;
 import com.lance.lim.mq.redis.config.RedisMessageSubscriberConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +24,12 @@ public class RedisMessageSubscriberTest {
 
     @Test
     public void test() throws InterruptedException {
-        messageSubscriber.subscribe(new PubSub() {
+        messageSubscriber.subscribe(TOPIC, new PubSub() {
             @Override
             public void onMessage(String topic, Message message) {
                 System.out.println("订阅" + topic + "主题的消息：" + message);
             }
-        }, TOPIC);
+        });
 
         // 等待消息
         Thread.sleep(30000L);

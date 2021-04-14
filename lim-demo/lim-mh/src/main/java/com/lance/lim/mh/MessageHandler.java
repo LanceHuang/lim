@@ -29,7 +29,7 @@ public class MessageHandler extends AbstractLifecycle {
     public void doStart() {
         this.runner = () -> {
             // todo
-            messageSubscriber.subscribe(null, messageHandlerProperties.getTopic());
+            messageSubscriber.subscribe(messageHandlerProperties.getTopic(), null);
         };
         new Thread(runner).start();
     }

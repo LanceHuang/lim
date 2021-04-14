@@ -24,12 +24,12 @@ public class KafkaMessageSubscriberTest {
 
     @Test
     public void test() {
-        messageSubscriber.subscribe(new PubSub() {
+        messageSubscriber.subscribe(TOPIC, new PubSub() {
             @Override
             public void onMessage(String topic, Message message) {
                 System.out.println("订阅" + topic + "主题的消息：" + message);
             }
-        }, TOPIC);
+        });
     }
 
     @SpringBootApplication
