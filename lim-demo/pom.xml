@@ -17,8 +17,8 @@
         <module>lim-client</module>
         <module>lim-rest</module>
         <module>lim-mh</module>
-        <module>lim-sdk</module>
         <module>lim-platform</module>
+        <module>lim-platform-api</module>
     </modules>
 
 </project>

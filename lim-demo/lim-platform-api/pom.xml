@@ -8,6 +8,6 @@
         <artifactId>lim-demo</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>lim-sdk</artifactId>
+    <artifactId>lim-platform-api</artifactId>
 
 </project>
