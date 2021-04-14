@@ -1,5 +1,6 @@
 package com.lance.lim.mq.redis;
 
+import com.lance.lim.common.util.JsonUtils;
 import com.lance.lim.mq.MessagePublisher;
 import com.lance.lim.mq.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,13 @@ public class RedisMessagePublisher extends MessagePublisher {
 
     @Override
     public void publish(String topic, Message message) {
-        redisTemplate.convertAndSend(topic, message);
+        if (message == null) {
+            return;
+        }
+        String strMessage = JsonUtils.object2json(message);
+        if (strMessage == null) {
+            return;
+        }
+        redisTemplate.convertAndSend(topic, strMessage);
     }
 }

@@ -1,10 +1,10 @@
 package com.lance.lim.mq.redis.config;
 
-import com.lance.lim.common.config.RedisProperties;
 import com.lance.lim.mq.MessageSubscriber;
 import com.lance.lim.mq.redis.RedisMessageSubscriber;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 
 /**
  * 消息订阅者配置
@@ -12,11 +12,17 @@ import org.springframework.context.annotation.Bean;
  * @author Lance
  * @since 2021/4/8
  */
-@EnableConfigurationProperties(RedisProperties.class)
 public class RedisMessageSubscriberConfiguration {
 
-//    @Bean
-//    public MessageSubscriber messageSubscriber(RedisProperties redisProperties) {
-//        return new RedisMessageSubscriber(redisProperties);
-//    }
+    @Bean
+    public MessageSubscriber messageSubscriber() {
+        return new RedisMessageSubscriber();
+    }
+
+    @Bean
+    public RedisMessageListenerContainer redisMessageListenerContainer(RedisTemplate redisTemplate) {
+        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+        container.setConnectionFactory(redisTemplate.getConnectionFactory());
+        return container;
+    }
 }

@@ -1,9 +1,7 @@
 package com.lance.lim.mq.redis.config;
 
-import com.lance.lim.common.config.RedisProperties;
 import com.lance.lim.mq.MessagePublisher;
 import com.lance.lim.mq.redis.RedisMessagePublisher;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -12,11 +10,10 @@ import org.springframework.context.annotation.Bean;
  * @author Lance
  * @since 2021/4/8
  */
-@EnableConfigurationProperties(RedisProperties.class)
 public class RedisMessagePublisherConfiguration {
 
-//    @Bean
-//    public MessagePublisher messagePublisher(RedisProperties redisProperties) {
-//        return new RedisMessagePublisher(redisProperties);
-//    }
+    @Bean
+    public MessagePublisher messagePublisher() {
+        return new RedisMessagePublisher();
+    }
 }

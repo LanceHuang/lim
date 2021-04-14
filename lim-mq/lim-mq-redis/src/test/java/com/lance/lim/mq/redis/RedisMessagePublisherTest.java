@@ -5,13 +5,15 @@ import com.lance.lim.mq.model.Message;
 import com.lance.lim.mq.redis.config.RedisMessagePublisherConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 /**
  * @author Lance
  * @since 2021/4/8
  */
-@SpringBootTest(classes = RedisMessagePublisherConfiguration.class)
+@SpringBootTest(classes = RedisMessagePublisherTest.Config.class)
 public class RedisMessagePublisherTest {
 
     private static final String TOPIC = "test";
@@ -29,5 +31,10 @@ public class RedisMessagePublisherTest {
         message.setReceiver("Alice");
         message.setServerTimestamp(System.currentTimeMillis());
         messagePublisher.publish(TOPIC, message);
+    }
+
+    @SpringBootApplication
+    @Import(RedisMessagePublisherConfiguration.class)
+    public static class Config {
     }
 }
