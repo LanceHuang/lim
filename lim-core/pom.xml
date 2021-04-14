@@ -5,15 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.lance.lim</groupId>
-        <artifactId>lim-demo</artifactId>
+        <artifactId>lim</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>lim-rest</artifactId>
+    <artifactId>lim-core</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.lance.lim</groupId>
-            <artifactId>lim-core</artifactId>
+            <artifactId>lim-common</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lance.lim</groupId>
+            <artifactId>lim-net</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>

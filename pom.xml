@@ -7,10 +7,16 @@
     <artifactId>lim</artifactId>
     <version>${revision}</version>
     <modules>
-        <module>lim-net</module>
         <module>lim-common</module>
+        <module>lim-net</module>
         <module>lim-mq</module>
-        <module>lim-demo</module>
+        <module>lim-platform</module>
+        <module>lim-platform-api</module>
+        <module>lim-rest</module>
+        <module>lim-core</module>
+        <module>lim-client</module>
+        <module>lim-server</module>
+        <module>lim-mh</module>
     </modules>
     <packaging>pom</packaging>
 

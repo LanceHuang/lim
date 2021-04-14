@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.lance.lim</groupId>
-        <artifactId>lim-demo</artifactId>
+        <artifactId>lim</artifactId>
         <version>${revision}</version>
     </parent>
     <artifactId>lim-platform</artifactId>
