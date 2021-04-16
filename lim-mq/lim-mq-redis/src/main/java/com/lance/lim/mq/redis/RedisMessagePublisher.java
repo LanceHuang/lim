@@ -18,7 +18,7 @@ public class RedisMessagePublisher extends MessagePublisher {
     private RedisTemplate<String, String> redisTemplate;
 
     @Override
-    public void publish(String topic, Message message) {
+    public void publish(String topic, String key, Message message) {
         if (message == null) {
             return;
         }

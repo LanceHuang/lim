@@ -19,8 +19,8 @@ public class KafkaMessagePublisher extends MessagePublisher {
     private KafkaProducer kafkaProducer;
 
     @Override
-    public void publish(String topic, Message message) {
-        ProducerRecord record = new ProducerRecord<>(topic, JsonUtils.object2json(message));
+    public void publish(String topic, String key, Message message) {
+        ProducerRecord record = new ProducerRecord<>(topic, key, JsonUtils.object2json(message));
         kafkaProducer.send(record);
     }
 }
